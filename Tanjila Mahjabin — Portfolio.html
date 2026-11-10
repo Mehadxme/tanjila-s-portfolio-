@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tanjila Mahjabin — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#FFFFFF;--ink:#000000;--mute:#000000;--line:#E3E3E3;--accent:#0E8C7F;--panel:#F1F1F1;--gridc:transparent;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Newsreader",Georgia,serif;overflow-x:hidden}
+h1,h2,h3,.sans,nav,button,.tag{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(20px,5vw,64px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav b{font-weight:800;font-size:18px}
+nav ul{display:flex;gap:clamp(14px,2.5vw,32px);list-style:none;margin:0;padding:0;font-size:15px;overflow-x:auto}
+nav a{text-decoration:none;white-space:nowrap}nav a:hover{color:var(--accent)}
+.hero{position:relative;min-height:calc(100vh - 62px);min-height:calc(100svh - 62px);display:flex;align-items:center;padding:0 clamp(20px,5vw,64px);overflow:hidden;border-bottom:1px solid var(--line)}
+#grid{position:absolute;inset:0;width:100%;height:100%}
+.ghost{position:absolute;left:clamp(10px,4vw,56px);top:18%;font:800 clamp(80px,18vw,240px)/1 "Bricolage Grotesque",sans-serif;color:var(--panel);letter-spacing:-.04em;pointer-events:none;user-select:none}
+.ring{position:absolute;right:-18vw;top:-14vh;width:min(70vw,720px);aspect-ratio:1;border:2px solid var(--ink);border-radius:50%;pointer-events:none}
+.ring .orbit{position:absolute;inset:-2px;border-radius:50%;animation:spin 30s linear infinite}.ring .orbit::after{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--ink)}.ring .av{position:absolute;left:50%;top:100%;margin:-36px 0 0 -36px;animation:spin 30s linear infinite reverse;box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 25%,transparent);width:72px;height:72px;border-radius:50%;background:var(--accent);color:var(--bg);display:grid;place-items:center;font:800 24px "Bricolage Grotesque",sans-serif;border:4px solid var(--bg)}
+.hero-copy{position:relative;max-width:640px;padding:60px 0;pointer-events:none}
+.hero-copy a,.hero-copy button{pointer-events:auto}
+h1{font-size:clamp(40px,7vw,80px);line-height:1.02;margin:0 0 18px;letter-spacing:-.03em;font-weight:800}
+.role{font:600 clamp(18px,2.4vw,24px)/1.3 "Bricolage Grotesque",sans-serif;margin:0 0 14px}
+.bio{color:var(--mute);max-width:52ch;margin:0 0 28px}
+.btn{display:inline-block;padding:14px 26px;background:var(--ink);color:var(--bg);text-decoration:none;font:600 15px "Bricolage Grotesque",sans-serif;border:2px solid var(--ink)}
+.btn.alt{background:transparent;color:var(--ink);margin-left:10px}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+section{padding:clamp(56px,9vw,112px) clamp(20px,5vw,64px);border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:0 auto}
+h2{font-size:clamp(30px,4.5vw,52px);letter-spacing:-.025em;margin:0 0 36px;font-weight:800;line-height:1.05}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px)}
+.item{padding:18px 0;border-top:1px solid var(--line)}
+.item h3{margin:0;font-size:20px;font-weight:600}.item p{margin:4px 0 0;color:var(--mute)}
+.tag{font-size:14px;color:var(--accent);font-weight:600}
+.proj{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line)}
+.card{position:relative;padding:clamp(24px,4vw,44px);min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;overflow:hidden;background:var(--panel);transition:background .3s}
+.card+.card{border-left:1px solid var(--line)}
+.card::before{content:"";position:absolute;inset:-40%;background-image:linear-gradient(var(--gridc) 1px,transparent 1px),linear-gradient(90deg,var(--gridc) 1px,transparent 1px);background-size:34px 34px;transform:rotate(0) scale(1);transition:transform .8s cubic-bezier(.2,.8,.2,1),border-radius .8s}
+.card:hover::before,.card:focus-visible::before{transform:rotate(6deg) scale(1.15)}
+.card:hover{background:var(--bg)}
+.card>*{position:relative}
+.card h3{font-size:clamp(28px,3.4vw,40px);margin:6px 0 8px;letter-spacing:-.02em;font-weight:800}
+.card p{margin:0;color:var(--mute);max-width:36ch}
+.skills{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.skills li{padding:9px 18px;border:1.5px solid var(--ink);border-radius:999px;font:600 15px "Bricolage Grotesque",sans-serif;transition:background .2s,color .2s}
+.skills li:hover{background:var(--ink);color:var(--bg)}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+footer{padding:32px clamp(20px,5vw,64px);color:var(--mute);font-size:15px}
+@media (max-width:760px){.two,.proj{grid-template-columns:1fr}.card+.card{border-left:0;border-top:1px solid var(--line)}.btn.alt{margin:10px 0 0}nav ul li:nth-child(n+5){display:none}.ring{right:-40vw}}
+#grid{display:none}.ring{display:none}#cells{position:absolute;inset:0;width:100%;height:100%}.card{background:#E3EDEA}.card::before{background-image:linear-gradient(rgba(18,41,43,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(18,41,43,.16) 1px,transparent 1px)}body,h1,h2,h3,p{color:#000}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,-6vh) scale(1.2)}100%{transform:translate(-4vw,5vh) scale(.95)}}
+.glass-sec{position:relative;overflow:hidden;isolation:isolate}
+.glass-sec::before,.glass-sec::after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(40px);opacity:.6;animation:drift 14s ease-in-out infinite alternate}
+.glass-sec::before{width:44vw;height:44vw;max-width:520px;max-height:520px;left:-8%;top:8%;background:radial-gradient(circle,var(--accent),transparent 68%)}
+.glass-sec::after{width:38vw;height:38vw;max-width:460px;max-height:460px;right:-6%;bottom:2%;background:radial-gradient(circle,#7C8CFF,transparent 68%);animation-delay:-6s}
+#experience::after{background:radial-gradient(circle,#FF9AC1,transparent 68%)}
+.glass-sec .two>div{display:grid;gap:18px;align-content:start}
+.glass-sec .item{padding:22px 26px;border:1px solid color-mix(in srgb,var(--ink) 12%,transparent);border-radius:28px;background:color-mix(in srgb,var(--bg) 42%,transparent);-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.08),0 12px 32px rgba(18,41,43,.12);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.glass-sec .item:hover{transform:translateY(-4px) scale(1.015);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 18px 40px rgba(18,41,43,.18)}
+.glass-sec .item h3{font-size:21px}
+.js .hero-copy>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.js .hero-copy>*:nth-child(2){animation-delay:.12s}.js .hero-copy>*:nth-child(3){animation-delay:.24s}.js .hero-copy>*:nth-child(4){animation-delay:.36s}.js .hero-copy>*:nth-child(5){animation-delay:.48s}
+.js .rv{opacity:0;transform:translateY(44px) scale(.97);transition:opacity .8s ease var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.glass-sec .item.rv.in:hover{transform:translateY(-4px) scale(1.015)}
+@media (prefers-reduced-motion:reduce){.ring .orbit,.ring .av,.glass-sec::before,.glass-sec::after,.js .hero-copy>*{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<nav><b>Tanjila Mahjabin</b>
+<ul><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+
+<header class="hero">
+<canvas id="grid" aria-hidden="true"></canvas><canvas id="cells" aria-hidden="true"></canvas>
+<div class="ghost" aria-hidden="true">ZOOLOGY</div>
+<div class="ring" aria-hidden="true"><div class="orbit"><div class="av">TM</div></div></div>
+<div class="hero-copy">
+<h1>Hello, I’m Tanjila</h1>
+<p class="role">Zoology student, educator and content creator</p>
+<p class="bio">I’m an undergraduate in Zoology from Bangladesh. I teach, design and create study resources that make learning easier for students. I founded Study with GenZ and love building things people can learn from.</p>
+<a class="btn" href="#projects">View my work</a><a class="btn alt" href="#contact">Get in touch</a>
+</div>
+</header>
+
+<section id="about"><div class="wrap two">
+<div><h2>Teaching, designing, creating.</h2></div>
+<div><p>I’m based in Bangladesh and studying B.Sc. (Honours) in Zoology. Alongside my degree I tutor students, create educational content and design graphics for learning.</p>
+<p>My goal is simple: turn hard topics into clear, friendly study material for students in my community.</p></div>
+</div></section>
+
+<section id="education" class="glass-sec"><div class="wrap"><h2>Education</h2><div class="two">
+<div><div class="item"><h3>B.Sc. (Honours) in Zoology</h3><p>National University</p></div>
+<div class="item"><h3>HSC</h3><p>Noakhali Govt. Women’s College</p></div>
+<div class="item"><h3>SSC</h3><p>Noakhali Govt. Girls’ High School</p></div></div>
+<div><div class="item"><h3>Languages</h3><p>Bengali, native<br>English, intermediate</p></div>
+<div class="item"><h3>Achievements</h3><p>Two-time debate competition winner<br>Digital Graphic Design &amp; Photoshop course<br>Aspire Leaders certificate<br>Academic achievements</p></div></div>
+</div></div></section>
+
+<section id="experience" class="glass-sec"><div class="wrap"><h2>Experience</h2><div class="two">
+<div><div class="item"><h3>Tutor</h3><p>1 year of teaching experience</p></div>
+<div class="item"><h3>Founder and creator, Study with GenZ</h3><p>An educational platform and content project</p></div></div>
+<div><div class="item"><h3>Educational content creation</h3><p>Student-focused learning resources</p></div>
+<div class="item"><h3>Graphic design and content development</h3><p>Visuals, presentations and social media content</p></div></div>
+</div></div></section>
+
+<section id="projects"><div class="wrap"><h2>Projects</h2>
+<div class="proj">
+<a class="card" href="https://youtube.com/@studywithgenz-o7e?si=CDVxKGvIUkWkXKSL" target="_blank" rel="noopener"><span class="tag">Education</span><h3>Study with GenZ</h3><p>An educational platform and YouTube channel with learning resources for students.</p></a>
+<a class="card" href="https://www.instagram.com/cooking_with_fahiya?mdxt=NmZ6d3llMmh4Y3M%3D&utm_source=qr" target="_blank" rel="noopener"><span class="tag">Food content</span><h3>Cook &amp; Chill</h3><p>A recipe and food content project, shared on social media.</p></a>
+</div></div></section>
+
+<section id="skills"><div class="wrap"><h2>Skills</h2>
+<ul class="skills"><li>Graphic Design</li><li>Adobe Photoshop</li><li>Educational Content Creation</li><li>Teaching &amp; Tutoring</li><li>English Communication</li><li>Social Media Content</li><li>Presentation</li><li>Basic Digital Marketing</li></ul></div></section>
+
+<section id="contact"><div class="wrap"><h2>Let’s connect</h2>
+<div class="links">
+<a class="btn" href="#" aria-label="LinkedIn (add link)">LinkedIn</a>
+<a class="btn alt" style="margin:0" href="https://youtube.com/@studywithgenz-o7e?si=CDVxKGvIUkWkXKSL" target="_blank" rel="noopener">YouTube</a>
+<a class="btn alt" style="margin:0" href="https://www.facebook.com/tanjila.mahjabin.fahiya" target="_blank" rel="noopener">Facebook</a>
+<a class="btn alt" style="margin:0" href="https://www.instagram.com/cooking_with_fahiya?mdxt=NmZ6d3llMmh4Y3M%3D&utm_source=qr" target="_blank" rel="noopener">Cook &amp; Chill</a>
+</div></div></section>
+<footer>© Tanjila Mahjabin</footer>
+<script>
+(function(){
+var c=document.getElementById('cells'),x=c.getContext('2d'),dpr=Math.min(window.devicePixelRatio||1,2),W,H,cells=[],m={x:-999,y:-999},run=true,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function build(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);var n=Math.max(10,Math.round(W*H/30000));cells=[];for(var i=0;i<n;i++)cells.push({x:Math.random()*W,y:Math.random()*H,r:18+Math.random()*62,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,ph:Math.random()*6.28,k:2+Math.floor(Math.random()*3)});draw(0)}
+function draw(t){x.clearRect(0,0,W,H);cells.forEach(function(p){
+if(!p.o){p.sx=.85+Math.random()*.3;p.rot=Math.random()*6.28;p.o={n:{a:Math.random()*6.28,d:Math.random()*.2},m:[],g:[]};
+for(var i=0;i<3+Math.floor(p.r/25);i++)p.o.m.push({a:Math.random()*6.28,d:.4+Math.random()*.35,l:.14+Math.random()*.1,r:Math.random()*3.14});
+for(var j=0;j<12+Math.floor(p.r/3);j++)p.o.g.push({a:Math.random()*6.28,d:Math.random()*.88,s:Math.random()*1.2+.4})}
+var R=p.r,o=p.o;x.save();x.translate(p.x,p.y);x.rotate(p.rot+t*.00005*(p.ph>3?1:-1));
+function path(sc){x.beginPath();for(var a=0;a<=40;a++){var th=a/40*6.2832,rr=R*sc*(1+.05*Math.sin(th*p.k+t*.0012+p.ph)+.025*Math.sin(th*5-t*.0018+p.ph*2));var px=Math.cos(th)*rr*p.sx,py=Math.sin(th)*rr/p.sx;a?x.lineTo(px,py):x.moveTo(px,py)}x.closePath()}
+path(1);var g=x.createRadialGradient(-R*.3,-R*.3,R*.1,0,0,R*1.1);g.addColorStop(0,'rgba(222,245,241,.6)');g.addColorStop(.7,'rgba(150,214,205,.34)');g.addColorStop(1,'rgba(50,150,140,.5)');x.fillStyle=g;x.fill();
+x.lineWidth=1.8;x.strokeStyle='rgba(20,110,100,.6)';x.stroke();
+path(.92);x.lineWidth=1.4;x.strokeStyle='rgba(255,255,255,.75)';x.stroke();
+o.g.forEach(function(q){x.beginPath();x.arc(Math.cos(q.a+t*.00012)*q.d*R*p.sx,Math.sin(q.a+t*.00012)*q.d*R/p.sx,q.s,0,6.2832);x.fillStyle='rgba(20,110,100,.4)';x.fill()});
+o.m.forEach(function(q){var a=q.a+t*.00018,mx=Math.cos(a)*q.d*R*p.sx,my=Math.sin(a)*q.d*R/p.sx,l=q.l*R;x.save();x.translate(mx,my);x.rotate(q.r+t*.0004);x.beginPath();x.ellipse(0,0,l,l*.45,0,0,6.2832);x.fillStyle='rgba(245,180,140,.6)';x.fill();x.lineWidth=1;x.strokeStyle='rgba(170,90,60,.7)';x.stroke();
+x.beginPath();x.moveTo(-l*.7,0);for(var k=-3;k<=3;k++)x.lineTo(k*l*.2,(k%2?-1:1)*l*.22);x.lineTo(l*.7,0);x.strokeStyle='rgba(170,90,60,.55)';x.lineWidth=.8;x.stroke();x.restore()});
+var nx=Math.cos(o.n.a+t*.0002)*o.n.d*R*p.sx,ny=Math.sin(o.n.a+t*.00025)*o.n.d*R/p.sx,nr=R*.3;
+var ng=x.createRadialGradient(nx-nr*.3,ny-nr*.3,nr*.1,nx,ny,nr);ng.addColorStop(0,'rgba(175,155,235,.7)');ng.addColorStop(1,'rgba(95,75,175,.7)');x.beginPath();x.arc(nx,ny,nr,0,6.2832);x.fillStyle=ng;x.fill();x.lineWidth=1.4;x.strokeStyle='rgba(70,50,150,.7)';x.stroke();
+x.beginPath();x.arc(nx+nr*.15,ny+nr*.1,nr*.28,0,6.2832);x.fillStyle='rgba(55,35,125,.75)';x.fill();
+x.beginPath();x.ellipse(-R*.38*p.sx,-R*.42/p.sx,R*.16,R*.07,-.6,0,6.2832);x.fillStyle='rgba(255,255,255,.75)';x.fill();
+x.restore()})}
+function drawOld(t){x.clearRect(0,0,W,H);cells.forEach(function(p){
+x.beginPath();for(var a=0;a<=28;a++){var th=a/28*6.2832,rr=p.r*(1+.08*Math.sin(th*p.k+t*.0013+p.ph)),px=p.x+Math.cos(th)*rr,py=p.y+Math.sin(th)*rr;a?x.lineTo(px,py):x.moveTo(px,py)}x.closePath();
+var g=x.createRadialGradient(p.x,p.y,p.r*.1,p.x,p.y,p.r*1.1);g.addColorStop(0,'rgba(14,140,127,.03)');g.addColorStop(1,'rgba(14,140,127,.16)');x.fillStyle=g;x.fill();x.strokeStyle='rgba(0,0,0,.28)';x.lineWidth=1.2;x.stroke();
+x.beginPath();x.arc(p.x+Math.cos(t*.001+p.ph)*p.r*.2,p.y+Math.sin(t*.0012+p.ph)*p.r*.2,p.r*.2,0,6.2832);x.fillStyle='rgba(0,0,0,.14)';x.fill()})}
+function step(t){cells.forEach(function(p){var dx=p.x-m.x,dy=p.y-m.y,d=Math.sqrt(dx*dx+dy*dy),R=p.r+140;if(d<R){var f=(1-d/R)*.9;p.vx+=dx/(d||1)*f;p.vy+=dy/(d||1)*f}
+p.vx*=.97;p.vy*=.97;var s=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(s<.12){p.vx+=(Math.random()-.5)*.02;p.vy+=(Math.random()-.5)*.02}
+p.x+=p.vx;p.y+=p.vy;if(p.x<-p.r)p.x=W+p.r;if(p.x>W+p.r)p.x=-p.r;if(p.y<-p.r)p.y=H+p.r;if(p.y>H+p.r)p.y=-p.r});draw(t)}
+function loop(t){if(run)step(t);requestAnimationFrame(loop)}
+window.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top},{passive:true});
+window.addEventListener('resize',build);
+new IntersectionObserver(function(e){run=e[0].isIntersecting}).observe(c);
+build();if(!reduce)requestAnimationFrame(loop);
+})();(function(){
+var d=document.documentElement;d.classList.add('js');
+var els=document.querySelectorAll('section h2,.item,.card,.skills li,#about p,.links a');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+els.forEach(function(el){var sib=Array.prototype.indexOf.call(el.parentNode.children,el);el.style.setProperty('--d',(sib%4*0.1)+'s');el.classList.add('rv');io.observe(el)});
+})();
+</script>
+
+<script>
+(function(){
+var c=document.getElementById('grid'),x=c.getContext('2d'),S=38,pts=[],cols,rows,W,H,m={x:-999,y:-999,vx:0,vy:0},dpr=Math.min(window.devicePixelRatio||1,2),
+reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,run=true;
+function build(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+cols=Math.ceil(W/S)+2;rows=Math.ceil(H/S)+2;pts=[];for(var j=0;j<rows;j++)for(var i=0;i<cols;i++)pts.push({bx:i*S,by:j*S,x:i*S,y:j*S,vx:0,vy:0});draw()}
+function color(){return getComputedStyle(document.documentElement).getPropertyValue('--gridc')||'rgba(0,0,0,.15)'}
+function step(){var R=170;for(var k=0;k<pts.length;k++){var p=pts[k],dx=p.x-m.x,dy=p.y-m.y,d=Math.sqrt(dx*dx+dy*dy);
+if(d<R){var f=(1-d/R);p.vx+=m.vx*f*.06+(dx/(d||1))*f*1.4;p.vy+=m.vy*f*.06+(dy/(d||1))*f*1.4}
+p.vx+=(p.bx-p.x)*.035;p.vy+=(p.by-p.y)*.035;p.vx*=.86;p.vy*=.86;p.x+=p.vx;p.y+=p.vy}
+m.vx*=.8;m.vy*=.8}
+function line(a,b){x.lineTo(pts[a].x,pts[a].y)}
+function draw(){x.clearRect(0,0,W,H);x.strokeStyle=color().trim();x.lineWidth=1;x.beginPath();
+for(var j=0;j<rows;j++){x.moveTo(pts[j*cols].x,pts[j*cols].y);for(var i=1;i<cols;i++){var a=pts[j*cols+i-1],b=pts[j*cols+i];x.quadraticCurveTo(a.x,a.y,(a.x+b.x)/2,(a.y+b.y)/2)}}
+for(var i2=0;i2<cols;i2++){x.moveTo(pts[i2].x,pts[i2].y);for(var j2=1;j2<rows;j2++){var a2=pts[(j2-1)*cols+i2],b2=pts[j2*cols+i2];x.quadraticCurveTo(a2.x,a2.y,(a2.x+b2.x)/2,(a2.y+b2.y)/2)}}
+x.stroke()}
+function loop(){if(run){step();draw()}requestAnimationFrame(loop)}
+var last=null;
+function move(e){var r=c.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;if(last){m.vx=px-last.x;m.vy=py-last.y}last={x:px,y:py};m.x=px;m.y=py}
+window.addEventListener('pointermove',move,{passive:true});
+window.addEventListener('pointerleave',function(){m.x=m.y=-999;last=null});
+window.addEventListener('resize',build);
+new IntersectionObserver(function(e){run=e[0].isIntersecting}).observe(c);
+
+})();
+</script>
+</body>
+</html>
